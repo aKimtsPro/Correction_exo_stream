@@ -1,15 +1,12 @@
-package com.bstorm.service;
+package com.bstorm.correction.service;
 
-import com.bstorm.ProductNotFoundException;
-import com.bstorm.StockException;
+import com.bstorm.correction.ProductNotFoundException;
+import com.bstorm.correction.StockException;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
 
 public class Magasin {
 

@@ -1,4 +1,4 @@
-package com.bstorm;
+package com.bstorm.correction;
 
 public class ProductNotFoundException extends RuntimeException {
 

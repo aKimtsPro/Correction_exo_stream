@@ -1,8 +1,8 @@
-package com.bstorm;
+package com.bstorm.correction;
 
-import com.bstorm.presentation.Menu;
-import com.bstorm.service.Magasin;
-import com.bstorm.service.MagasinFiller;
+import com.bstorm.correction.presentation.Menu;
+import com.bstorm.correction.service.Magasin;
+import com.bstorm.correction.service.MagasinFiller;
 
 public class Main {
 
