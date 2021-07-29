@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class Magasin {
 
@@ -22,15 +25,14 @@ public class Magasin {
     public String getNom() {
         return nom;
     }
+    public int getStockLimit() {
+        return stockLimit;
+    }
 
     private int getStockSize(){
         return produits.stream()
-                .mapToInt(Produit::getStock)
-                .sum();
-    }
-
-    public int getStockLimit() {
-        return stockLimit;
+                .map(Produit::getStock)
+                .reduce(0, Integer::sum);
     }
 
     public List<Produit> getProduits() {
@@ -53,15 +55,16 @@ public class Magasin {
 
         produits.add(toAdd);
     }
-
     public void deleteProduct(Produit toDelete){
         produits.remove(toDelete);
     }
-
     public void addStock(Produit produit, int toAdd){
         int stockSize = getStockSize();
         if( stockSize + toAdd > stockLimit)
             throw new StockException(toAdd, stockSize, stockLimit);
+
+        if( !produits.contains(produit) )
+            throw new ProductNotFoundException();
 
         produit.addToStock(toAdd);
     }
@@ -77,7 +80,6 @@ public class Magasin {
                 .sorted(comparator)
                 .collect(Collectors.toList());
     }
-
     public List<Produit> getStockSortedByPrice(boolean desc){
         Comparator<Produit> comparator = Comparator.comparingDouble(Produit::getPrix);
         if(desc)
@@ -87,7 +89,6 @@ public class Magasin {
                 .sorted(comparator)
                 .collect(Collectors.toList());
     }
-
     public List<Produit> getStockSortedByType(boolean desc){
         Comparator<Produit> comparator = Comparator.comparing(p -> p.getType().name());
         if(desc)
@@ -113,7 +114,7 @@ public class Magasin {
     public List<Produit> search(Double minPrix, Double maxPrix, Produit.Type type, String nom){
         return produits.stream()
                 .filter(produit -> minPrix == null || produit.getPrix() >= minPrix)
-                .filter(produit -> maxPrix == null || produit.getPrix() >= maxPrix)
+                .filter(produit -> maxPrix == null || produit.getPrix() <= maxPrix)
                 .filter(produit -> type == null || produit.getType() == type)
                 .filter(produit -> nom == null || produit.getNom().contains(nom))
                 .collect(Collectors.toList());

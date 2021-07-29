@@ -21,9 +21,7 @@ public class Menu {
     public void start(){
 
         welcome();
-
         int choice = 0;
-
         do {
             showMenu();
             choice = getChoice(8);
@@ -114,7 +112,6 @@ public class Menu {
         try{
             System.out.println("Quelles sont les caractèristiques du produit?");
             System.out.println("---> nom: ");
-            scanner.reset();
             nom = scanner.nextLine();
 
             System.out.println("---> prix: ");
@@ -153,8 +150,6 @@ public class Menu {
             System.out.println("\ttaille du stock après ajout: " + (e.getCurrentStock() + e.getAddedStock()) );
             System.out.println("\ttaille du stock limite: " + e.getLimit());
         }
-
-
     }
     private void deleteProduct(){
         System.out.println("Quel est le nom du produit à supprimer ? ");
@@ -172,13 +167,16 @@ public class Menu {
             System.out.println("---> nom du produit: ");
             Produit p = magasin.getProductByName(scanner.nextLine());
 
-            System.out.println("Quel quantité à ajouter");
+            System.out.println("Quelle quantité à ajouter");
             System.out.println("---> qtt(nombre entier positif): ");
             magasin.addStock(p, scanner.nextInt());
             scanner.nextLine();
         }
         catch (ProductNotFoundException e){
             System.out.println("Ce produit n'a pas été trouvé");
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("La valeur doit être positive");
         }
         catch (InputMismatchException e){
             System.out.println("entrée invalide, retour au menu principal");
