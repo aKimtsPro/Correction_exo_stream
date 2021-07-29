@@ -1,9 +1,9 @@
-package com.bstorm.correction.presentation;
+package com.bstorm.correction.streams.presentation;
 
-import com.bstorm.correction.ProductNotFoundException;
-import com.bstorm.correction.StockException;
-import com.bstorm.correction.service.Magasin;
-import com.bstorm.correction.service.Produit;
+import com.bstorm.correction.streams.ProductNotFoundException;
+import com.bstorm.correction.streams.StockException;
+import com.bstorm.correction.streams.service.Magasin;
+import com.bstorm.correction.streams.service.Produit;
 
 import java.util.InputMismatchException;
 import java.util.List;

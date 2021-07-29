@@ -1,4 +1,4 @@
-package com.bstorm.correction;
+package com.bstorm.correction.streams;
 
 public class StockException extends RuntimeException {
 

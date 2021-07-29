@@ -1,4 +1,4 @@
-package com.bstorm.correction.service;
+package com.bstorm.correction.streams.service;
 
 public class MagasinFiller {
 

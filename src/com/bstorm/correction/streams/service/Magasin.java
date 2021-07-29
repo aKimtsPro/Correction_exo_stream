@@ -1,7 +1,7 @@
-package com.bstorm.correction.service;
+package com.bstorm.correction.streams.service;
 
-import com.bstorm.correction.ProductNotFoundException;
-import com.bstorm.correction.StockException;
+import com.bstorm.correction.streams.ProductNotFoundException;
+import com.bstorm.correction.streams.StockException;
 
 import java.util.ArrayList;
 import java.util.Comparator;
