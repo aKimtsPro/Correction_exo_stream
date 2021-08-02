@@ -38,7 +38,7 @@ public class InterruptDemo {
                     nbrSecondePassee += nbrSecEntre;
                 }
                 catch (InterruptedException e){
-                    return;
+                    Thread.currentThread().interrupt();
                 }
             }
         };
