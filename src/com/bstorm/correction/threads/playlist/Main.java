@@ -1,8 +1,5 @@
-package com.bstorm.correction.threads.exo2;
+package com.bstorm.correction.threads.playlist;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {

@@ -1,4 +1,4 @@
-package com.bstorm.correction.threads.exo1;
+package com.bstorm.correction.threads.tictac;
 
 public class Main {
     public static void main(String[] args) {

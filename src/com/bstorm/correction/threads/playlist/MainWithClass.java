@@ -1,4 +1,4 @@
-package com.bstorm.correction.threads.exo2;
+package com.bstorm.correction.threads.playlist;
 
 import java.util.Scanner;
 
