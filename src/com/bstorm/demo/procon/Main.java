@@ -1,8 +1,18 @@
 package com.bstorm.demo.procon;
 
+import java.util.Objects;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
+        Object o = new Object();
+
+        synchronized (o){
+            System.out.println("attente wait");
+            o.wait(2000);
+            System.out.println("fin attente");
+        }
 
         NumberStock ns = new NumberStock();
 
